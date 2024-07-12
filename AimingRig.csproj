@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{A8BC051F-7906-B8A9-3E89-DF8CD4541C44}</ProjectGuid>
+    <ProjectGuid>{495B9842-A9D5-87DB-C3DD-146A547BCBEE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>AimingRig</AssemblyName>

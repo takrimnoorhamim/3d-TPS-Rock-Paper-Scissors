@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{B5CD20AB-6089-F506-0675-22AA115D8F29}</ProjectGuid>
+    <ProjectGuid>{E746898E-CC41-965D-94C2-74E2CAD40DE6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -60,7 +60,10 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.35f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\CharacterSelection.cs" />
     <Compile Include="Assets\Scripts\ThirdPersonMovement.cs" />
+    <Compile Include="Assets\Scenes\CharModel.cs" />
+    <Compile Include="Assets\PlayerSetup.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
