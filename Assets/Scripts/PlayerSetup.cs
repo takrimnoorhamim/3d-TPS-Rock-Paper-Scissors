@@ -1,9 +1,8 @@
+// PlayerSetup.cs
 using UnityEngine;
-
 public class PlayerSetup : MonoBehaviour
 {
-    public GameObject[] characterPrefabs;
-
+    public CharacterDatabase characterDatabase; // Reference to the CharacterDatabase asset
     void Start()
     {
         SetupSelectedCharacter();
@@ -12,23 +11,26 @@ public class PlayerSetup : MonoBehaviour
     void SetupSelectedCharacter()
     {
         int selectedCharIndex = PlayerPrefs.GetInt("SelectedCharacterIndex", 0);
-
-        if (selectedCharIndex >= 0 && selectedCharIndex < characterPrefabs.Length)
+        if (characterDatabase != null && selectedCharIndex >= 0 && selectedCharIndex < characterDatabase.characters.Count)
         {
-            GameObject selectedChar = Instantiate(characterPrefabs[selectedCharIndex], transform);
-            selectedChar.transform.localPosition = Vector3.zero;
-            selectedChar.transform.localRotation = Quaternion.identity;
-
-            // Ensure the character has the correct tag
-            selectedChar.tag = "Player";
-
-            // You might want to add components or do other setup here
-            // For example:
-            // selectedChar.AddComponent<CharacterController>();
+            CharacterData selectedCharData = characterDatabase.characters[selectedCharIndex];
+            if (selectedCharData.prefab != null)
+            {
+                GameObject selectedChar = Instantiate(selectedCharData.prefab, transform);
+                selectedChar.transform.localPosition = Vector3.zero;
+                selectedChar.transform.localRotation = Quaternion.identity;
+                // Ensure the character has the correct tag
+                selectedChar.tag = "Player";
+                Debug.Log($"Spawned character: {selectedCharData.name}");
+            }
+            else
+            {
+                Debug.LogError($"Prefab for character '{selectedCharData.name}' is not set.");
+            }
         }
         else
         {
-            Debug.LogError("Invalid character index or character prefabs not set up correctly.");
+            Debug.LogError("Invalid character index or CharacterDatabase not set up correctly.");
         }
     }
 }

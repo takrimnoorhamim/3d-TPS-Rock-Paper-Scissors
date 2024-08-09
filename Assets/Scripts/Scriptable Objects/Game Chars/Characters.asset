@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e6dbccf9adb87341bacc8b0c6e56229, type: 3}
+  m_Name: Characters
+  m_EditorClassIdentifier: 
+  characters:
+  - name: boy
+    icon: {fileID: 21300000, guid: dc6e10a004488e24f9a9e4e0bff15d2c, type: 3}
+    prefab: {fileID: 3718244114214412009, guid: ef9dfa7d44c03fb44afee7202da6f455, type: 3}
+    price: 0
+    isPurchased: 1
+  - name: girl
+    icon: {fileID: 21300000, guid: b2e9eb34407df6646a8131fab345fdd2, type: 3}
+    prefab: {fileID: 3178987259854973844, guid: ac0d7337473eab94fb01335a8c85bd80, type: 3}
+    price: 4
+    isPurchased: 1
+  - name: Ty
+    icon: {fileID: 21300000, guid: aa1a2ef946d18c145a6619005156cf4a, type: 3}
+    prefab: {fileID: 5553531954996137177, guid: 8d3c13c7bd06f37479f7b46aea6645ff, type: 3}
+    price: 7
+    isPurchased: 1

@@ -1,13 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName ="CharModel", menuName = "Char")]
-public class CharModel : ScriptableObject
+[CreateAssetMenu(fileName = "CharacterDatabase", menuName = "Character System/Character Database")]
+public class CharacterDatabase : ScriptableObject
 {
-
-    public string name;
-    public float speed;
-    public GameObject character;
-
+    public List<CharacterData> characters = new List<CharacterData>();
 }
