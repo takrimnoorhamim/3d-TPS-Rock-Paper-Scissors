@@ -14,17 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characters:
   - name: boy
-    icon: {fileID: 21300000, guid: dc6e10a004488e24f9a9e4e0bff15d2c, type: 3}
+    icon: {fileID: 21300000, guid: 79d4dd61a1f99e943b2994df03822800, type: 3}
     prefab: {fileID: 3718244114214412009, guid: ef9dfa7d44c03fb44afee7202da6f455, type: 3}
     price: 0
     isPurchased: 1
-  - name: girl
-    icon: {fileID: 21300000, guid: b2e9eb34407df6646a8131fab345fdd2, type: 3}
-    prefab: {fileID: 3178987259854973844, guid: ac0d7337473eab94fb01335a8c85bd80, type: 3}
+  - name: Claire
+    icon: {fileID: 21300000, guid: 82c5b1e299e1fd8449903992317da075, type: 3}
+    prefab: {fileID: 2246292396756874971, guid: 93f51e9499e8654429573d6d0445e486, type: 3}
     price: 4
     isPurchased: 1
   - name: Ty
-    icon: {fileID: 21300000, guid: aa1a2ef946d18c145a6619005156cf4a, type: 3}
+    icon: {fileID: 21300000, guid: 829dc08b315609a4d9225d1c9c522cd1, type: 3}
     prefab: {fileID: 5553531954996137177, guid: 8d3c13c7bd06f37479f7b46aea6645ff, type: 3}
     price: 7
     isPurchased: 1

@@ -19,6 +19,9 @@ public class CharacterSelection : MonoBehaviour
     [SerializeField]
     private string nextSceneName = "GameScene";
 
+    public AudioSource src;
+    public AudioClip buy;
+
     private void Start()
     {
         if (characterDatabase == null)
@@ -161,6 +164,8 @@ public class CharacterSelection : MonoBehaviour
             PlayerPrefs.Save();
 
             Debug.Log($"Character {currentCharacterData.name} purchased successfully!");
+
+            src.PlayOneShot(buy);
         }
         else if (currentCharacterData.isPurchased)
         {

@@ -1,8 +1,10 @@
-// PlayerCollisionHandler.cs
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+
 public class PlayerCollisionHandler : MonoBehaviour
 {
     public enum RpsType
@@ -33,6 +35,9 @@ public class PlayerCollisionHandler : MonoBehaviour
     private string saveFilePath;
     private Animator anim;
     private playerAnimController playerAnimControll;
+
+    public AudioSource src;
+    public AudioClip scoreSound, deadSound;
 
     private void Start()
     {
@@ -69,6 +74,7 @@ public class PlayerCollisionHandler : MonoBehaviour
                     // Player wins
                     score++;
                     UpdateScoreText();
+                    src.PlayOneShot(scoreSound);
                     SaveJson();
                     Destroy(collidedObject);
                     bots.Remove(collidedObject);
@@ -79,9 +85,13 @@ public class PlayerCollisionHandler : MonoBehaviour
                     // Bot wins
                     if (anim != null)
                     {
-                        anim.SetTrigger("Death");
+                        StartCoroutine(TriggerDeathAndLoadScene());
                     }
-                    Debug.Log("Game over!");
+                    else
+                    {
+                        Debug.LogError("Animator not found. Loading Scene 0 immediately.");
+                        SceneManager.LoadScene(0);
+                    }
                 }
                 else
                 {
@@ -94,6 +104,18 @@ public class PlayerCollisionHandler : MonoBehaviour
                 Debug.Log("Either player or bot doesn't have an active RPS object.");
             }
         }
+    }
+
+    private IEnumerator TriggerDeathAndLoadScene()
+    {
+        anim.SetTrigger("Death");
+        src.PlayOneShot(deadSound);
+
+        // Wait for the death animation to finish
+        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
+
+        // Load Scene 0
+        SceneManager.LoadScene(0);
     }
 
     private RpsType? GetActiveRpsType(List<RpsChild> children)
@@ -156,7 +178,7 @@ public class PlayerCollisionHandler : MonoBehaviour
 
     private void UpdateScoreText()
     {
-        scoreText.text = "Score: " + score.ToString();
+        scoreText.text = score.ToString();
     }
 
     public void SaveJson()
@@ -185,5 +207,4 @@ public class PlayerCollisionHandler : MonoBehaviour
             Debug.Log("Save file not found, starting with default score.");
         }
     }
-
 }

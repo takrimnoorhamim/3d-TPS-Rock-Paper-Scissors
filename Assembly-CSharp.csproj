@@ -62,18 +62,21 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\CharacterData.cs" />
     <Compile Include="Assets\Scripts\PlayerSetup.cs" />
+    <Compile Include="Assets\Scripts\CharacterSelectionPositioner.cs" />
     <Compile Include="Assets\Scripts\From Prev Game\PlayerController.cs" />
-    <Compile Include="Assets\CharacterPurchaseManager.cs" />
+    <Compile Include="Assets\Scripts\CharacterPurchaseManager.cs" />
     <Compile Include="Assets\Scripts\From Prev Game\EnemyAI.cs" />
-    <Compile Include="Assets\playerAnimController.cs" />
     <Compile Include="Assets\Scripts\From Prev Game\CollisionHandler.cs" />
     <Compile Include="Assets\Scripts\ThirdPersonMovement.cs" />
+    <Compile Include="Assets\Scripts\CreditsManager.cs" />
     <Compile Include="Assets\Scripts\From Prev Game\RockPaperScript.cs" />
     <Compile Include="Assets\Scripts\CharModel.cs" />
-    <Compile Include="Assets\CharacterSelectionPositioner.cs" />
+    <Compile Include="Assets\Scripts\playerAnimController.cs" />
     <Compile Include="Assets\Scripts\CharacterSelection.cs" />
     <Compile Include="Assets\Scripts\From Prev Game\FaceCamera.cs" />
-    <Compile Include="Assets\CreditsManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Customizable Skybox\Stylized Sky\Shaders\Stylized Sky.shader" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
