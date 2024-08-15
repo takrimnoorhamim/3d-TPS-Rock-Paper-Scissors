@@ -2048,6 +2048,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4793594946265186123, guid: f8efd7823f729b24a8f439cdd8122c0a, type: 3}
+      propertyPath: m_Name
+      value: Scissors
+      objectReference: {fileID: 0}
+    - target: {fileID: 4793594946265186123, guid: f8efd7823f729b24a8f439cdd8122c0a, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -2549,7 +2553,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d18c1d75ef7560e46a38f1ad118370d5, type: 2}
+  - {fileID: 2100000, guid: 0193b30a05ab59646838832965a248c2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

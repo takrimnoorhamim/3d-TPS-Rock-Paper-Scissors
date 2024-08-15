@@ -4,9 +4,42 @@ using System.IO;
 
 public class CreditsManager : MonoBehaviour
 {
+    private static CreditsManager _instance;
+    public static CreditsManager Instance
+    {
+        get
+        {
+            // If the instance is null, try to find an existing one in the scene
+            if (_instance == null)
+            {
+                _instance = FindObjectOfType<CreditsManager>();
+
+                // If still null, log an error because there should be one CreditsManager in the scene
+                if (_instance == null)
+                {
+                    Debug.LogError("No instance of CreditsManager found in the scene!");
+                }
+            }
+            return _instance;
+        }
+    }
+
     public Text creditsText;
     private int score;
     private string saveFilePath;
+
+    private void Awake()
+    {
+        if (_instance == null)
+        {
+            _instance = this;
+        }
+        else if (_instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+    }
 
     void Start()
     {

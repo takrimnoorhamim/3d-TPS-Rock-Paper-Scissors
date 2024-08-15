@@ -13,7 +13,6 @@ public class CharacterSelection : MonoBehaviour
     public CharacterPurchaseManager purchaseManager;
     public Button buyButton;
     public Button playButton;
-    public CreditsManager creditsManager;
     private List<GameObject> chars;
     private int currentChar;
     [SerializeField]
@@ -110,7 +109,7 @@ public class CharacterSelection : MonoBehaviour
         CharacterData currentCharacterData = characterDatabase.characters[currentChar];
         buyButton.gameObject.SetActive(!currentCharacterData.isPurchased);
         playButton.gameObject.SetActive(currentCharacterData.isPurchased);
-        buyButton.interactable = creditsManager.GetScore() >= currentCharacterData.price;
+        buyButton.interactable = CreditsManager.Instance.GetScore() >= currentCharacterData.price;
     }
 
     public void OnclickNext()
@@ -154,9 +153,9 @@ public class CharacterSelection : MonoBehaviour
     {
         CharacterData currentCharacterData = characterDatabase.characters[currentChar];
 
-        if (creditsManager.GetScore() >= currentCharacterData.price && !currentCharacterData.isPurchased)
+        if (CreditsManager.Instance.GetScore() >= currentCharacterData.price && !currentCharacterData.isPurchased)
         {
-            creditsManager.DeductCredits(currentCharacterData.price);
+            CreditsManager.Instance.DeductCredits(currentCharacterData.price);
             currentCharacterData.isPurchased = true;
 
             // Save the purchased status
@@ -173,10 +172,8 @@ public class CharacterSelection : MonoBehaviour
         }
         else
         {
-            Debug.Log("Not enough credits to purchase this character!");
+            Debug.Log("Not enough credits!");
         }
-
-        // Update the UI to reflect changes
         UpdateButtonStates();
     }
 

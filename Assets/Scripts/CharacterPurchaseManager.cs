@@ -4,7 +4,6 @@ using UnityEngine.UI;
 public class CharacterPurchaseManager : MonoBehaviour
 {
     public CharacterDatabase characterDatabase;
-    public CreditsManager creditsManager;
     public CharacterSelection characterSelection;
     public Button buyButton;
     public Button playButton;
@@ -20,9 +19,9 @@ public class CharacterPurchaseManager : MonoBehaviour
         int currentCharIndex = characterSelection.GetCurrentCharacterIndex();
         CharacterData currentChar = characterDatabase.characters[currentCharIndex];
 
-        if (creditsManager.GetScore() >= currentChar.price && !currentChar.isPurchased)
+        if (CreditsManager.Instance.GetScore() >= currentChar.price && !currentChar.isPurchased)
         {
-            creditsManager.DeductCredits(currentChar.price);
+            CreditsManager.Instance.DeductCredits(currentChar.price);
             currentChar.isPurchased = true;
             UpdateButtonStates();
 
@@ -42,7 +41,7 @@ public class CharacterPurchaseManager : MonoBehaviour
         buyButton.gameObject.SetActive(!currentChar.isPurchased);
         playButton.gameObject.SetActive(currentChar.isPurchased);
 
-        buyButton.interactable = creditsManager.GetScore() >= currentChar.price;
+        buyButton.interactable = CreditsManager.Instance.GetScore() >= currentChar.price;
     }
 
     private void SavePurchasedStatus(int characterIndex)
