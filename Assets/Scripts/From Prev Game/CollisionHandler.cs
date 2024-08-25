@@ -90,7 +90,7 @@ public class PlayerCollisionHandler : MonoBehaviour
                     else
                     {
                         Debug.LogError("Animator not found. Loading Scene 0 immediately.");
-                        SceneManager.LoadScene(0);
+                        SceneManager.LoadScene(1);
                     }
                 }
                 else
@@ -114,8 +114,8 @@ public class PlayerCollisionHandler : MonoBehaviour
         // Wait for the death animation to finish
         yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
 
-        // Load Scene 0
-        SceneManager.LoadScene(0);
+        // Load Scene 1
+        SceneManager.LoadScene(1);
     }
 
     private RpsType? GetActiveRpsType(List<RpsChild> children)
